@@ -14,6 +14,13 @@ import javax.security.auth.login.LoginException;
 
 public class Bot extends ListenerAdapter {
 
+    /*
+    TODO
+    - add search by date command
+    - add author thumbnails
+    - add multi message random command (for context)
+     */
+
     public static JDA jda;
     public static String prefix = ".";
 
