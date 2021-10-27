@@ -10,6 +10,7 @@ public class Help {
                 .setTitle("Zoom Sucks Bot - Help")
                 .setDescription("Zoom Sucks Bot is a discord bot designed to quote the Zoom Sucks group DM. However this bot can easily be adapted to any discord log.")
                 .setAuthor("KnightsWhoSayNi#0001")
+                .setFooter("https://github.com/KnightsWhoSayNi0/discordArchiveBot")
                 .addField("Random", "Type .random or .r to view a random quote.", false)
                 .setColor(0xff22ff77);
 
