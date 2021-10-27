@@ -95,7 +95,7 @@ public class Librarian {
             hour = hour + 12;
         }
 
-        return LocalDateTime.of(20 + Integer.parseInt(date[0]), month, Integer.parseInt(date[2]), hour - 1, minute);
+        return LocalDateTime.of(Integer.parseInt("20".concat(date[2])), month, Integer.parseInt(date[0]), hour - 1, minute);
     }
 
 }
