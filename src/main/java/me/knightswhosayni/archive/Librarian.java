@@ -44,6 +44,16 @@ public class Librarian {
         return archive.get(r.nextInt(archive.size()));
     }
 
+    public static List<Message> getRandomMessages(int messages) {
+        List<Message> o = new ArrayList<>();
+        Random r = new Random();
+        int first = r.nextInt(archive.size());
+        for (int i = 1; i <= messages; i++) {
+            o.add(archive.get(first + i));
+        }
+        return o;
+    }
+
     public static LocalDateTime parseDate(String i) {
         String[] a = i.split(" ");
         String[] date = a[0].split("-");

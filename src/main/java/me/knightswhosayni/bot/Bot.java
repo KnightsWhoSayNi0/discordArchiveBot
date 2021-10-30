@@ -1,8 +1,9 @@
 package me.knightswhosayni.bot;
 
-import me.knightswhosayni.bot.commands.Help;
+import me.knightswhosayni.bot.commands.CommandManager;
+import me.knightswhosayni.bot.commands.impl.Help;
 import me.knightswhosayni.archive.Librarian;
-import me.knightswhosayni.bot.commands.Random;
+import me.knightswhosayni.bot.commands.impl.Random;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
@@ -18,10 +19,10 @@ public class Bot extends ListenerAdapter {
     TODO
     - add search by date command
     - add author thumbnails
-    - add multi message random command (for context)
      */
 
     public static JDA jda;
+    public static CommandManager commandManager;
     public static String prefix = ".";
 
     public static void main(String[] args) throws LoginException {
@@ -37,16 +38,21 @@ public class Bot extends ListenerAdapter {
                 .setActivity(Activity.playing(prefix + "help"))
                 .build();
 
+        commandManager = new CommandManager();
+
     }
 
     @Override
-    public void onMessageReceived(MessageReceivedEvent event) {
-        String msg = event.getMessage().getContentRaw();
-        if (msg.equals(".help")) {
-            Help.execute(event);
+    public void onMessageReceived(MessageReceivedEvent e) {
+        String msg = e.getMessage().getContentRaw();
+        String[] args = msg.split(" ");
+
+        if (e.getAuthor().isBot()) {
+            return;
         }
-        if (msg.equals(".random") || msg.equals(".r")) {
-            Random.execute(event);
+
+        if (args[0].startsWith(Bot.prefix)) {
+            Bot.commandManager.handleCommands(args, e);
         }
     }
 
