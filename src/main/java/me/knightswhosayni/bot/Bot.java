@@ -19,7 +19,6 @@ public class Bot extends ListenerAdapter {
     TODO
     - add search by date command
     - add author thumbnails
-    - add .context command to provide the next message in sequence, after a random message is given
      */
 
     public static JDA jda;
