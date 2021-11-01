@@ -12,11 +12,13 @@ import java.util.Random;
 
 public class Librarian {
 
-    public static List<Message> archive;
+    private static List<Message> archive;
+    private static int lastMessage;
 
     public static void init() {
         archive = parseCsv("archive.csv");
         System.out.println(archive.size() + " messages collected.");
+        lastMessage = 0;
     }
 
     private static List<Message> parseCsv(String file) {
@@ -41,7 +43,9 @@ public class Librarian {
 
     public static Message getRandomMessage() {
         Random r = new Random();
-        return archive.get(r.nextInt(archive.size()));
+        Message m = archive.get(r.nextInt(archive.size()));
+        lastMessage = archive.indexOf(m);
+        return m;
     }
 
     public static List<Message> getRandomMessages(int messages) {
@@ -51,7 +55,14 @@ public class Librarian {
         for (int i = 1; i <= messages; i++) {
             o.add(archive.get(first + i));
         }
+        lastMessage = archive.indexOf(first + messages);
         return o;
+    }
+    
+    public static Message getLastMessage() {
+        Message m = archive.get(lastMessage);
+        lastMessage++;
+        return m;
     }
 
     public static LocalDateTime parseDate(String i) {
