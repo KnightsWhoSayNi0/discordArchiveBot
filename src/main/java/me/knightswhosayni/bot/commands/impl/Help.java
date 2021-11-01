@@ -23,7 +23,7 @@ public class Help extends Command {
                 .setColor(0xff22ff77);
 
         for (Command c : Bot.commandManager.commands) {
-            embed.addField(c.getName(), "Description: " + c.getDescription() + "\n Syntax: " + c.getSyntax(), true);
+            embed.addField(c.getName(), "Description: " + c.getDescription() + "\n Syntax: " + Bot.prefix + c.getSyntax(), true);
         }
 
         event.getChannel().sendMessage(embed.build()).queue();
