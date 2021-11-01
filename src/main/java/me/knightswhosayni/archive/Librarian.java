@@ -44,7 +44,7 @@ public class Librarian {
     public static Message getRandomMessage() {
         Random r = new Random();
         Message m = archive.get(r.nextInt(archive.size()));
-        lastMessage = archive.indexOf(m);
+        lastMessage = archive.indexOf(m) + 1;
         return m;
     }
 
@@ -55,7 +55,7 @@ public class Librarian {
         for (int i = 1; i <= messages; i++) {
             o.add(archive.get(first + i));
         }
-        lastMessage = archive.indexOf(first + messages);
+        lastMessage = archive.indexOf(archive.get(first + messages)) + 1;
         return o;
     }
     

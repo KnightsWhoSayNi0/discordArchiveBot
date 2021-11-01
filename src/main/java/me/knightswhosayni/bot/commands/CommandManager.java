@@ -20,6 +20,7 @@ public class CommandManager {
     public void setup() { // add commands
         commands.add(new Help());
         commands.add(new Random());
+        commands.add(new Context());
     }
 
     public void handleCommands(String[] args, MessageReceivedEvent event) {

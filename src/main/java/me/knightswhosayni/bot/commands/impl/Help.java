@@ -17,13 +17,13 @@ public class Help extends Command {
                 .setTitle("Zoom Sucks Bot - Help")
                 .setDescription("Zoom Sucks Bot is a discord bot designed to quote the Zoom Sucks group DM. However this bot can easily be adapted to any discord log.")
                 .setAuthor("KnightsWhoSayNi#0001")
-                .setFooter("https://github.com/KnightsWhoSayNi0/discordArchiveBot")
+                .setFooter("https://github.com/KnightsWhoSayNi0/discordArchiveBot - Version 1.0-SNAPSHOT")
                 .setThumbnail(Bot.jda.getSelfUser().getAvatarUrl())
                 .addField("Random", "Type .random or .r to view a random quote.", true)
                 .setColor(0xff22ff77);
 
         for (Command c : Bot.commandManager.commands) {
-            embed.addField(c.getName(), "Description: " + c.getDescription() + "\n Syntax: " + Bot.prefix + c.getSyntax(), true);
+            embed.addField(c.getName(), "Description: " + c.getDescription() + "\n Syntax: " + Bot.prefix + c.getSyntax(), false);
         }
 
         event.getChannel().sendMessage(embed.build()).queue();

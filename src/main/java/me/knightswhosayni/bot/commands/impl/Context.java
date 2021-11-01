@@ -2,12 +2,9 @@ package me.knightswhosayni.bot.commands.impl;
 
 import me.knightswhosayni.archive.Librarian;
 import me.knightswhosayni.archive.Message;
-import me.knightswhosayni.bot.Bot;
 import me.knightswhosayni.bot.commands.Command;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-
-import java.util.List;
 
 public class Context extends Command {
 
