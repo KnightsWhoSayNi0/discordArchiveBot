@@ -34,9 +34,7 @@ public class Random extends Command {
             try {
                 int count = Integer.parseInt(args[1]);
 
-                if (count == 0) {
-                    throw new Exception();
-                } else {
+                if (count > 0) {
                     List<Message> messages = Librarian.getRandomMessages(count);
 
                     for (Message m : messages) {
@@ -51,6 +49,8 @@ public class Random extends Command {
                             e.getChannel().sendMessage(m.getAttachments()).queue();
                         }
                     }
+                } else {
+                    throw new Exception();
                 }
             } catch (Exception ex) {
                 e.getChannel().sendMessage(new EmbedBuilder()
