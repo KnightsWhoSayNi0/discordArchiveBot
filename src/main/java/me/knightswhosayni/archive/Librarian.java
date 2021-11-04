@@ -65,6 +65,15 @@ public class Librarian {
         return m;
     }
 
+    public static List<Message> getLastMessages(int messages) {
+        List<Message> o = new ArrayList<>();
+        for (int i = 1; i <= messages; i++) {
+            o.add(archive.get(lastMessage + i));
+        }
+        lastMessage = archive.indexOf(archive.get(lastMessage + messages)) + 1;
+        return o;
+    }
+
     public static LocalDateTime parseDate(String i) {
         String[] a = i.split(" ");
         String[] date = a[0].split("-");
