@@ -39,20 +39,9 @@ public class Context extends Command {
                 int count = Integer.parseInt(args[1]);
 
                 if (count > 0) {
-                    List<Message> messages = Librarian.getRandomMessages(count);
+                    List<Message> messages = Librarian.getLastMessages(count);
 
-                    for (Message m : messages) {
-                        EmbedBuilder embed = new EmbedBuilder()
-                                .setDescription(m.getContent())
-                                .setAuthor(m.getAuthor())
-                                .setTimestamp(m.getDate());
-
-                        e.getChannel().sendMessage(embed.build()).queue();
-
-                        if (!m.getAttachments().isEmpty()) {
-                            e.getChannel().sendMessage(m.getAttachments()).queue();
-                        }
-                    }
+                    Random.sendEmbeds(e, messages);
                 } else {
                     throw new Exception();
                 }

@@ -37,18 +37,7 @@ public class Random extends Command {
                 if (count > 0) {
                     List<Message> messages = Librarian.getRandomMessages(count);
 
-                    for (Message m : messages) {
-                        EmbedBuilder embed = new EmbedBuilder()
-                                .setDescription(m.getContent())
-                                .setAuthor(m.getAuthor())
-                                .setTimestamp(m.getDate());
-
-                        e.getChannel().sendMessage(embed.build()).queue();
-
-                        if (!m.getAttachments().isEmpty()) {
-                            e.getChannel().sendMessage(m.getAttachments()).queue();
-                        }
-                    }
+                    sendEmbeds(e, messages);
                 } else {
                     throw new Exception();
                 }
@@ -59,6 +48,21 @@ public class Random extends Command {
                         .setColor(0xff22ff77)
                         .build()).queue();
                 ex.printStackTrace();
+            }
+        }
+    }
+
+    public static void sendEmbeds(MessageReceivedEvent e, List<Message> messages) {
+        for (Message m : messages) {
+            EmbedBuilder embed = new EmbedBuilder()
+                    .setDescription(m.getContent())
+                    .setAuthor(m.getAuthor())
+                    .setTimestamp(m.getDate());
+
+            e.getChannel().sendMessage(embed.build()).queue();
+
+            if (!m.getAttachments().isEmpty()) {
+                e.getChannel().sendMessage(m.getAttachments()).queue();
             }
         }
     }

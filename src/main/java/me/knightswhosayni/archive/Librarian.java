@@ -78,7 +78,7 @@ public class Librarian {
         String[] a = i.split(" ");
         String[] date = a[0].split("-");
 
-        int month = 1;
+        int month = 0;
         switch (date[1]) {
             case "Jan":
                 month = 1;
