@@ -41,10 +41,18 @@ public class Librarian {
         return output;
     }
 
+    /*
+    message return system
+    lastMessage = the last message retrieved
+    chosen at random with getRandomMessage()
+    inc to get the next message
+    dec to get the previous message
+     */
+
     public static Message getRandomMessage() {
         Random r = new Random();
         Message m = archive.get(r.nextInt(archive.size()));
-        lastMessage = archive.indexOf(m) + 1;
+        lastMessage = archive.indexOf(m);
         return m;
     }
 
@@ -55,22 +63,37 @@ public class Librarian {
         for (int i = 1; i <= messages; i++) {
             o.add(archive.get(first + i));
         }
-        lastMessage = archive.indexOf(archive.get(first + messages)) + 1;
+        lastMessage = archive.indexOf(archive.get(first + messages));
         return o;
     }
     
-    public static Message getLastMessage() {
-        Message m = archive.get(lastMessage);
+    public static Message getNextMessage() {
+        Message m = archive.get(lastMessage + 1);
         lastMessage++;
         return m;
     }
 
-    public static List<Message> getLastMessages(int messages) {
+    public static List<Message> getNextMessages(int messages) {
         List<Message> o = new ArrayList<>();
         for (int i = 1; i <= messages; i++) {
             o.add(archive.get(lastMessage + i));
         }
-        lastMessage = archive.indexOf(archive.get(lastMessage + messages)) + 1;
+        lastMessage = archive.indexOf(archive.get(lastMessage + messages));
+        return o;
+    }
+
+    public static Message getPreviousMessage() {
+        Message m = archive.get(lastMessage -1);
+        lastMessage--;
+        return m;
+    }
+
+    public static List<Message> getPreviousMessages(int messages) {
+        List<Message> o = new ArrayList<>();
+        for (int i = 1; i <= messages; i++) {
+            o.add(archive.get(lastMessage - i));
+        }
+        lastMessage = archive.indexOf(archive.get(lastMessage - messages));
         return o;
     }
 

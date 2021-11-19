@@ -13,14 +13,15 @@ public class CommandManager {
     public List<Command> commands;
 
     public CommandManager() {
-        commands = new ArrayList<Command>();
+        commands = new ArrayList<>();
         setup();
     }
 
     public void setup() { // add commands
         commands.add(new Help());
         commands.add(new Random());
-        commands.add(new Context());
+        commands.add(new Next());
+        commands.add(new Previous());
     }
 
     public void handleCommands(String[] args, MessageReceivedEvent event) {
@@ -44,8 +45,7 @@ public class CommandManager {
             embed.setTitle("Command Not Found");
             embed.setColor(0xff22ff77);
 
-            MessageReceivedEvent e = (MessageReceivedEvent) event;
-            e.getChannel().sendMessage(embed.build()).queue();
+            event.getChannel().sendMessage(embed.build()).queue();
         }
     }
 
