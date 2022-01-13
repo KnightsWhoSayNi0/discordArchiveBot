@@ -49,7 +49,7 @@ public class Bot extends ListenerAdapter {
             return;
         }
 
-        if (args[0].startsWith(Bot.prefix)) {
+        if (args[0].startsWith(Bot.prefix) && args[0].length > 1) {
             Bot.commandManager.handleCommands(args, e);
         }
     }
