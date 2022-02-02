@@ -1,5 +1,6 @@
 # Discord Archive Bot
 [![Java CI with Maven](https://github.com/KnightsWhoSayNi0/discordArchiveBot/actions/workflows/maven.yml/badge.svg)](https://github.com/KnightsWhoSayNi0/discordArchiveBot/actions/workflows/maven.yml)
+[![GitHub issues](https://img.shields.io/github/issues/KnightsWhoSayNi0/discordArchiveBot?logo=github)](https://github.com/KnightsWhoSayNi0/discordArchiveBot/issues)
 
 A discord bot designed to quote discord dm exports from the DiscordChatExporter.
 
