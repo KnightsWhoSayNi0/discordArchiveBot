@@ -1,5 +1,6 @@
 # Discord Archive Bot
 [![Java CI with Maven](https://github.com/KnightsWhoSayNi0/discordArchiveBot/actions/workflows/maven.yml/badge.svg)](https://github.com/KnightsWhoSayNi0/discordArchiveBot/actions/workflows/maven.yml)
+[![CodeQL](https://github.com/KnightsWhoSayNi0/discordArchiveBot/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/KnightsWhoSayNi0/discordArchiveBot/actions/workflows/codeql-analysis.yml)
 [![GitHub issues](https://img.shields.io/github/issues/KnightsWhoSayNi0/discordArchiveBot?logo=github)](https://github.com/KnightsWhoSayNi0/discordArchiveBot/issues)
 [![GitHub stars](https://img.shields.io/github/stars/KnightsWhoSayNi0/discordArchiveBot?logo=github)](https://github.com/KnightsWhoSayNi0/discordArchiveBot/stargazers)
 [![GitHub license](https://img.shields.io/github/license/KnightsWhoSayNi0/discordArchiveBot?logo=gnu)](https://github.com/KnightsWhoSayNi0/discordArchiveBot/blob/master/LICENSE)
